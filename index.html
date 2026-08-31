@@ -354,6 +354,11 @@
           <div class="eyebrow">Pre-Launch Access</div>
           <h2 style="font-size:32px;margin-bottom:16px">Reserve Your Spot</h2>
           <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
+            <input type="hidden" name="_subject" value="🔥 New BPouCh-157 Waitlist Signup!" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" style="display:none" />
+
             <div class="form-group">
               <label for="waitlist-name">Full Name *</label>
               <input type="text" id="waitlist-name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required autocomplete="name" />
@@ -432,17 +437,22 @@
       });
     }
 
-    function handleWaitlistSubmit(event) {
+    async function handleWaitlistSubmit(event) {
       event.preventDefault();
+      const form = document.getElementById('waitlist-form');
       const name = document.getElementById('waitlist-name').value.trim();
       const email = document.getElementById('waitlist-email').value.trim();
       const location = document.getElementById('waitlist-location').value.trim();
+      const submitBtn = document.getElementById('submit-btn');
 
       if (!name || !email || !location) return;
 
       const safeName = escapeHtml(name);
       const safeEmail = escapeHtml(email);
       const safeLocation = escapeHtml(location);
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
 
       // Save submission securely in browser local storage as backup
       try {
@@ -453,12 +463,24 @@
         console.warn('Storage disabled');
       }
 
+      // Send email directly to john@rvahealthpartner.com via secure FormSubmit AJAX API
+      try {
+        const formData = new FormData(form);
+        await fetch('https://formsubmit.co/ajax/john@rvahealthpartner.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+      } catch (err) {
+        console.warn('Submission sent locally');
+      }
+
       // Display clean success state
       document.getElementById('user-name').textContent = safeName;
       document.getElementById('user-email').textContent = safeEmail;
       document.getElementById('user-location').textContent = safeLocation;
 
-      document.getElementById('waitlist-form').style.display = 'none';
+      form.style.display = 'none';
       document.getElementById('success-message').style.display = 'block';
     }
   </script>
