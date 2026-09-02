@@ -1,420 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Updated: Whoosh Wellness Inspired Aesthetic -->
+  <!-- Updated: 2026-08-31 21:15 -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>BPC Pouch — Physician-Grade BPC-157 Oral Pouches</title>
-  <meta name="description" content="500 mcg of BPC-157 delivered in a clean, nicotine-free oral pouch. No needles, no mixing, no capsules." />
+  <title>BPouCh-157 — Oral Peptide Pouches</title>
+  <meta name="description" content="BPouCh-157 is a nicotine-free oral pouch delivering 500 mcg of BPC-157. Place under the lip. No needles. No mixing." />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https: fonts.gstatic.com;" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=David+Libre:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg-warm: #f5f2eb;
-      --bg-paper: #faf8f5;
-      --surface-card: #ffffff;
-      --border-light: #e5e0d5;
-      --text-dark: #191b1d;
-      --text-muted: #656970;
-      --brand-green: #253b30;
-      --brand-green-hover: #1b2d24;
-      --brand-green-light: #e6ede8;
-      --accent-sage: #889988;
-      --font-serif: 'David Libre', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --shadow-soft: 0 20px 40px rgba(25, 27, 29, 0.05);
-      --shadow-card: 0 24px 60px rgba(25, 27, 29, 0.08);
+    .form-group { margin-bottom: 18px; text-align: left; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy); margin-bottom: 6px; }
+    .form-input {
+      width: 100%; height: 48px; padding: 12px 16px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+      font-size: 15px; font-family: inherit; transition: border-color .15s ease, box-shadow .15s ease;
     }
+    .form-input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-soft); }
+    .security-badge {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted);
+      margin-top: 14px; background: var(--cream); padding: 8px 14px; border-radius: 999px;
+    }
+    .success-card {
+      display: none; background: #e6f4ea; border: 1px solid #ceead6; color: #137333;
+      padding: 24px; border-radius: 16px; text-align: center; margin-top: 12px;
+    }
+    .success-card h3 { font-size: 20px; font-family: "Instrument Serif", Georgia, serif; margin-bottom: 8px; color: #0d652d; }
 
+    :root {
+      --navy: #12243a;
+      --navy-2: #1b334f;
+      --teal: #0e6f78;
+      --teal-2: #14848e;
+      --teal-soft: #d7eef0;
+      --cream: #f6f3ee;
+      --paper: #fffcf8;
+      --ink: #1a2430;
+      --muted: #5c6978;
+      --line: #e4ddd4;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(18, 36, 58, 0.12);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; background: var(--bg-warm); }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-sans);
-      color: var(--text-dark);
-      background: var(--bg-warm);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
-
-    /* ANNOUNCEMENT BAR */
-    .announcement-bar {
-      background: var(--brand-green);
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .announcement-bar span.dot {
-      width: 6px; height: 6px; border-radius: 50%; background: #55e69b; display: inline-block;
-    }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
     /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(245, 242, 235, 0.88);
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,252,248,0.86);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--line);
     }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
-      height: 76px;
+      height: 72px;
     }
     .logo {
-      font-family: var(--font-serif);
-      font-weight: 500; font-size: 26px; letter-spacing: -0.01em; color: var(--text-dark);
-      display: flex; align-items: baseline; gap: 4px;
+      display: flex; align-items: baseline; gap: 2px;
+      font-weight: 700; letter-spacing: -0.03em; font-size: 22px; color: var(--navy);
     }
-    .logo span {
-      font-family: var(--font-sans); font-size: 11px; font-weight: 700;
-      background: var(--brand-green-light); color: var(--brand-green);
-      padding: 2px 8px; border-radius: 999px; letter-spacing: 0.06em;
-    }
-    .nav-links { display: flex; gap: 32px; align-items: center; font-size: 14px; font-weight: 600; color: var(--text-muted); }
-    .nav-links a:hover { color: var(--brand-green); }
-
+    .logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-size: 14px; font-weight: 500; color: var(--muted); }
+    .nav-links a:hover { color: var(--navy); }
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      background: var(--brand-green); color: #ffffff; border: 0;
-      padding: 14px 26px; border-radius: 999px;
-      font-family: var(--font-sans); font-weight: 600; font-size: 14px; cursor: pointer;
-      transition: all .2s ease; shadow: var(--shadow-soft);
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--navy); color: #fff; border: 0;
+      padding: 12px 20px; border-radius: 999px;
+      font-weight: 600; font-size: 14px; cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
     }
-    .btn:hover {
-      background: var(--brand-green-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(37, 59, 48, 0.2);
+    .btn:hover { background: var(--navy-2); transform: translateY(-1px); }
+    .btn-teal { background: var(--teal); }
+    .btn-teal:hover { background: var(--teal-2); }
+    .btn-ghost {
+      background: transparent; color: var(--navy);
+      border: 1px solid var(--line);
     }
+    .btn-ghost:hover { background: var(--cream); }
 
     /* HERO */
     .hero {
-      padding: 72px 0 64px;
-      background: radial-gradient(800px 400px at 70% 0%, rgba(37, 59, 48, 0.04), transparent 70%);
+      padding: 56px 0 32px;
+      background:
+        radial-gradient(900px 400px at 80% 0%, rgba(14,111,120,.08), transparent 60%),
+        var(--paper);
     }
     .hero-grid {
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center;
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center;
     }
-    .eyebrow-tag {
+    .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--brand-green); margin-bottom: 20px;
+      font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 16px;
     }
-    .eyebrow-tag::before {
-      content: ""; width: 24px; height: 1px; background: var(--brand-green);
-    }
+    .eyebrow:before { content: ""; width: 22px; height: 1px; background: var(--teal); }
     h1 {
-      font-family: var(--font-serif);
-      font-weight: 400; font-size: clamp(48px, 5.5vw, 72px);
-      line-height: 1.05; letter-spacing: -0.02em; color: var(--text-dark);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400; font-size: clamp(42px, 6vw, 72px);
+      line-height: .95; letter-spacing: -0.03em; color: var(--navy);
     }
-    h1 em {
-      font-style: italic; color: var(--brand-green); font-weight: 400;
+    h1 em { font-style: italic; color: var(--teal); }
+    .lede { margin-top: 22px; font-size: 18px; color: var(--muted); max-width: 460px; }
+    .hero-cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+    .specs { display: flex; gap: 28px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .spec strong { display: block; font-size: 20px; color: var(--navy); letter-spacing: -0.02em; }
+    .spec span { font-size: 12px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+    .hero-visual {
+      background: var(--cream); border-radius: 28px; padding: 18px;
+      box-shadow: var(--shadow);
     }
-    .lede {
-      margin-top: 22px; font-size: 18px; color: var(--text-muted); max-width: 500px; font-weight: 400;
-    }
-    .hero-cta { display: flex; gap: 16px; margin-top: 36px; align-items: center; flex-wrap: wrap; }
+    .hero-visual img { border-radius: 18px; width: 100%; height: auto; object-fit: cover; }
 
-    .specs-strip {
-      display: flex; gap: 36px; margin-top: 48px; padding-top: 28px;
-      border-top: 1px solid var(--border-light);
+    /* STRIP */
+    .strip {
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 18px 0; color: var(--muted); font-size: 13px; font-weight: 500;
     }
-    .spec-item strong {
-      display: block; font-family: var(--font-serif); font-size: 28px; font-weight: 500; color: var(--text-dark);
-    }
-    .spec-item span { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-
-    .hero-visual-card {
-      background: var(--surface-card); border: 1px solid var(--border-light);
-      border-radius: 28px; padding: 18px; box-shadow: var(--shadow-card);
-      position: relative;
-    }
-    .hero-visual-card img {
-      border-radius: 18px; width: 100%; height: auto; object-fit: cover;
-    }
-
-    .pill-badge {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-light);
-      padding: 10px 18px; border-radius: 999px;
-      font-size: 13px; font-weight: 600; color: var(--brand-green);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-    }
-    .badge-top { top: -14px; left: -14px; }
-    .badge-bottom { bottom: -14px; right: -14px; }
-
-    /* TICKER */
-    .ticker-bar {
-      background: var(--bg-paper);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      padding: 18px 0;
-    }
-    .ticker-inner {
-      display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
-      color: var(--text-muted); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .ticker-inner span { display: flex; align-items: center; gap: 10px; }
-    .ticker-inner span::before { content: "•"; color: var(--brand-green); font-size: 16px; }
+    .strip-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
     /* SECTIONS */
-    section { padding: 96px 0; }
-    .section-head { max-width: 600px; margin-bottom: 52px; }
+    section { padding: 88px 0; }
     h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(36px, 4vw, 54px); font-weight: 400;
-      letter-spacing: -0.02em; color: var(--text-dark); line-height: 1.1;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px); font-weight: 400;
+      letter-spacing: -0.03em; color: var(--navy); line-height: 1.1;
     }
-    .section-head p { margin-top: 16px; color: var(--text-muted); font-size: 18px; }
+    .section-head { max-width: 560px; margin-bottom: 48px; }
+    .section-head p { margin-top: 14px; color: var(--muted); font-size: 17px; }
 
-    /* SPLIT SECTION */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 20px; padding: 28px;
+    }
+    .num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--teal-soft); color: var(--teal);
+      display: grid; place-items: center; font-weight: 700; font-size: 14px;
+      margin-bottom: 18px;
+    }
+    .card h3 { font-size: 18px; margin-bottom: 8px; color: var(--navy); }
+    .card p { color: var(--muted); font-size: 15px; }
+
+    /* SPLIT */
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .split-visual {
-      background: var(--surface-card); border: 1px solid var(--border-light);
-      border-radius: 28px; padding: 18px; box-shadow: var(--shadow-card);
-    }
-    .split-visual img { border-radius: 18px; }
-
-    .checklist { margin-top: 28px; display: grid; gap: 14px; }
-    .check-item {
-      display: flex; align-items: center; gap: 14px; background: var(--surface-card);
-      border: 1px solid var(--border-light); padding: 14px 20px; border-radius: 16px;
-      font-size: 15px; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow-soft);
-    }
-    .check-icon {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: var(--brand-green-light); color: var(--brand-green);
-      display: grid; place-items: center; font-size: 12px; font-weight: 700; flex-shrink: 0;
+    .split img { border-radius: 24px; box-shadow: var(--shadow); }
+    .list { margin-top: 22px; display: grid; gap: 14px; }
+    .list li { list-style: none; display: flex; gap: 12px; color: var(--muted); font-size: 15px; }
+    .tick {
+      flex: 0 0 22px; height: 22px; border-radius: 50%;
+      background: var(--teal); color: #fff; display: grid; place-items: center;
+      font-size: 12px; margin-top: 1px;
     }
 
-    /* GRID CARDS */
-    .grid-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .card-box {
-      background: var(--surface-card); border: 1px solid var(--border-light);
-      border-radius: 24px; padding: 36px; box-shadow: var(--shadow-soft);
-      transition: all .25 ease;
+    /* BENEFITS */
+    .benefits { background: var(--navy); color: #e8eef4; }
+    .benefits h2 { color: #fff; }
+    .benefits .section-head p { color: #a9b8c7; }
+    .b-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .b-item {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px; padding: 22px;
     }
-    .card-box:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-card);
-    }
-    .card-icon {
-      width: 44px; height: 44px; border-radius: 14px;
-      background: var(--brand-green-light); color: var(--brand-green);
-      display: grid; place-items: center; font-size: 20px; margin-bottom: 20px;
-    }
-    .card-box h3 { font-family: var(--font-serif); font-size: 24px; font-weight: 500; color: var(--text-dark); margin-bottom: 10px; }
-    .card-box p { color: var(--text-muted); font-size: 15px; }
+    .b-item h3 { color: #fff; font-size: 16px; margin-bottom: 6px; }
+    .b-item p { color: #a9b8c7; font-size: 14px; }
 
-    /* WAITLIST FORM */
-    .waitlist-card {
-      background: var(--surface-card); border: 1px solid var(--border-light);
-      border-radius: 32px; padding: 44px; box-shadow: var(--shadow-card);
+    /* BUY */
+    .buy-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 28px; padding: 28px; box-shadow: var(--shadow);
     }
-    .form-group { margin-bottom: 20px; text-align: left; }
-    .form-group label {
-      display: block; font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.06em; color: var(--text-dark); margin-bottom: 8px;
+    .price-row { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 18px; }
+    .price { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; color: var(--navy); }
+    .price-note { color: var(--muted); font-size: 14px; }
+    .qty { display: flex; gap: 8px; margin: 18px 0 22px; }
+    .qty button, .qty span {
+      min-width: 42px; height: 42px; border-radius: 10px;
+      border: 1px solid var(--line); background: var(--cream);
+      display: grid; place-items: center; font-weight: 600;
     }
-    .form-input {
-      width: 100%; height: 52px; padding: 14px 18px; border-radius: 16px;
-      border: 1px solid var(--border-light); background: var(--bg-paper);
-      color: var(--text-dark); font-size: 15px; font-family: inherit; transition: all .15s ease;
-    }
-    .form-input:focus {
-      outline: none; border-color: var(--brand-green);
-      background: #ffffff;
-      box-shadow: 0 0 0 4px var(--brand-green-light);
-    }
-
-    .security-badge {
-      display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted);
-      margin-top: 20px; background: var(--bg-paper); padding: 10px 18px; border-radius: 999px;
-      border: 1px solid var(--border-light);
-    }
-    .success-card {
-      display: none; background: var(--brand-green-light); border: 1px solid var(--brand-green);
-      color: var(--brand-green); padding: 32px; border-radius: 20px; text-align: center; margin-top: 16px;
-    }
-    .success-card h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 500; margin-bottom: 8px; color: var(--brand-green); }
+    .qty button { cursor: pointer; }
+    .fine { margin-top: 12px; font-size: 12px; color: var(--muted); }
 
     /* FAQ */
     details {
-      background: var(--surface-card); border: 1px solid var(--border-light);
-      border-radius: 20px; margin-bottom: 14px; padding: 22px 28px; box-shadow: var(--shadow-soft);
+      border-bottom: 1px solid var(--line); padding: 18px 0;
     }
     summary {
-      cursor: pointer; font-family: var(--font-serif); font-weight: 500; font-size: 20px;
-      color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; font-weight: 600; color: var(--navy); list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
     }
     summary::-webkit-details-marker { display: none; }
-    summary:after { content: "+"; color: var(--brand-green); font-size: 24px; font-weight: 400; }
+    summary:after { content: "+"; color: var(--teal); font-size: 22px; font-weight: 400; }
     details[open] summary:after { content: "–"; }
-    details p { margin-top: 14px; color: var(--text-muted); font-size: 16px; line-height: 1.6; }
+    details p { margin-top: 10px; color: var(--muted); max-width: 720px; }
 
-    /* FOOTER */
     footer {
-      padding: 64px 0 36px; border-top: 1px solid var(--border-light);
-      color: var(--text-muted); font-size: 13px; background: var(--bg-paper);
+      padding: 48px 0 28px; border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 13px;
     }
-    .foot-top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+    .foot-top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
     .disclaimer {
-      background: var(--surface-card); border: 1px solid var(--border-light);
-      border-radius: 16px; padding: 20px; line-height: 1.6; color: var(--text-muted);
+      background: var(--cream); border-radius: 14px; padding: 16px 18px; line-height: 1.6;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid, .split, .grid-cards { grid-template-columns: 1fr; }
+    @media (max-width: 880px) {
+      .hero-grid, .split, .buy-box, .cards, .b-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .specs-strip { gap: 20px; }
+      .specs { gap: 16px; }
       section { padding: 64px 0; }
-      .pill-badge { display: none; }
     }
   </style>
 </head>
 <body>
-
-  <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="announcement-bar">
-    <span class="dot"></span> Pre-Launch Batch #1 Open for Early Access Priority
-  </div>
-
-  <!-- NAVIGATION -->
   <nav>
     <div class="wrap nav-inner">
-      <a class="logo" href="#">
-        BPC POUCH <span>157</span>
-      </a>
+      <a class="logo" href="#">BPouCh<span>-157</span></a>
       <div class="nav-links">
-        <a href="#inside">What's Inside</a>
-        <a href="#why">Why Pouches</a>
+        <a href="#inside">What's inside</a>
+        <a href="#why">Why pouches</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a class="btn" href="#waitlist">Join the Waitlist →</a>
+      <a class="btn" href="#waitlist">Join Waitlist</a>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
   <header class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow-tag">Oral Peptide Protocol</div>
-        <h1>BPC-157. <br/><em>Under the lip.</em></h1>
-        <p class="lede">500 mcg of BPC-157 delivered in a clean, discreet oral pouch. No needles, no mixing, no capsules to swallow. Just pop a pouch and go.</p>
+        <div class="eyebrow">Nicotine-free oral pouches</div>
+        <h1>BPC-157 in a pouch.<br><em>Simple as that.</em></h1>
+        <p class="lede">500 mcg of BPC-157 delivered right under your lip. No needles, no mixing, no capsules to swallow. Just pop a pouch and go.</p>
         <div class="hero-cta">
-          <a class="btn" href="#waitlist">Join the Waitlist →</a>
+          <a class="btn btn-teal" href="#waitlist">Get On The Waitlist</a>
         </div>
-        <div class="specs-strip">
-          <div class="spec-item"><strong>500 mcg</strong><span>BPC-157 / Pouch</span></div>
-          <div class="spec-item"><strong>15</strong><span>Pouches / Tin</span></div>
-          <div class="spec-item"><strong>0 mg</strong><span>Nicotine</span></div>
+        <div class="specs">
+          <div class="spec"><strong>500 mcg</strong><span>BPC-157 / pouch</span></div>
+          <div class="spec"><strong>15</strong><span>pouches per can</span></div>
+          <div class="spec"><strong>0 mg</strong><span>nicotine</span></div>
         </div>
       </div>
-
-      <div class="hero-visual-card">
-        <div class="pill-badge badge-top">⚡ 500 mcg BPC-157 Arginine</div>
-        <img src="images/hero-can.jpg" alt="BPC Pouch Product Can" />
-        <div class="pill-badge badge-bottom">🌿 100% Tobacco & Nicotine Free</div>
+      <div class="hero-visual">
+        <img src="images/hero-can.jpg" alt="BPouCh-157 oral peptide pouches" />
       </div>
     </div>
   </header>
 
-  <!-- TICKER BAR -->
-  <div class="ticker-bar">
-    <div class="wrap ticker-inner">
+  <div class="strip">
+    <div class="wrap strip-inner">
       <span>Zero Nicotine</span>
       <span>Zero Tobacco</span>
-      <span>No Syringes or Mixing</span>
-      <span>Discreet Under-Lip Pouch</span>
-      <span>Child-Resistant Tin</span>
+      <span>No Syringes</span>
+      <span>Discrete Under-Lip Format</span>
+      <span>Child-Resistant Snap Can</span>
     </div>
   </div>
 
-  <!-- WHAT'S INSIDE -->
   <section id="inside">
     <div class="wrap split">
-      <div class="split-visual">
-        <img src="images/open-can.jpg" alt="Open BPC Pouch Tin" />
-      </div>
+      <img src="images/open-can.jpg" alt="BPouCh-157 open tin" />
       <div>
-        <div class="eyebrow-tag">The Formulation</div>
-        <h2>Clean BPC-157. <br/>Nothing extra.</h2>
-        <p style="margin-top:16px; color: var(--text-muted); font-size: 16px;">Each pouch delivers a measured 500 mcg of BPC-157 arginine salt in a food-grade plant-fiber matrix with a light, natural mint touch for oral comfort.</p>
-        <div class="checklist">
-          <div class="check-item"><span class="check-icon">✓</span> 500 mcg BPC-157 arginine salt per pouch</div>
-          <div class="check-item"><span class="check-icon">✓</span> Plant-fiber matrix — 100% tobacco & nicotine free</div>
-          <div class="check-item"><span class="check-icon">✓</span> Clean, subtle mint flavor</div>
-          <div class="check-item"><span class="check-icon">✓</span> 15 pouches per tin</div>
-        </div>
+        <div class="eyebrow">What's inside</div>
+        <h2>Clean BPC-157. Nothing extra.</h2>
+        <p style="margin-top:16px;color:var(--muted)">Each pouch delivers a measured 500 mcg of BPC-157 arginine salt in a plant-fiber matrix with a light, natural mint touch for oral comfort.</p>
+        <ul class="list">
+          <li><span class="tick">✓</span> 500 mcg BPC-157 arginine salt per pouch</li>
+          <li><span class="tick">✓</span> Plant-fiber pouch — 100% tobacco and nicotine free</li>
+          <li><span class="tick">✓</span> Clean, subtle mint flavor</li>
+          <li><span class="tick">✓</span> 15 pouches per tin</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- WHY POUCHES -->
-  <section id="why" style="background: var(--bg-paper); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <section class="benefits" id="why">
     <div class="wrap">
       <div class="section-head">
         <h2>Why a pouch?</h2>
         <p>Because dealing with vials, needles, and mixing solutions every single day gets old fast.</p>
       </div>
-      <div class="grid-cards">
-        <div class="card-box">
-          <div class="card-icon">🚫</div>
-          <h3>No Needles or Mixing</h3>
-          <p>Skip the bacteriostatic water, insulin syringes, and fridge math. Grab a pouch and you're good.</p>
+      <div class="b-grid">
+        <div class="b-item">
+          <h3>No needles or mixing</h3>
+          <p>Ditch the bacteriostatic water, syringes, and fridge math. Grab a pouch and you're good.</p>
         </div>
-        <div class="card-box">
-          <div class="card-icon">⚡</div>
-          <h3>Pre-Measured Dose</h3>
-          <p>500 mcg is ready to go. The tin fits right in your pocket just like any standard pouch can.</p>
+        <div class="b-item">
+          <h3>Pre-measured, portable dose</h3>
+          <p>500 mcg is ready to go. The tin fits right in your pocket like any standard pouch can.</p>
         </div>
-        <div class="card-box">
-          <div class="card-icon">🥷</div>
-          <h3>Discreet & Portable</h3>
+        <div class="b-item">
+          <h3>Discreet & easy</h3>
           <p>No bottles or gear on your nightstand. Use it anywhere, anytime without anyone noticing.</p>
         </div>
-        <div class="card-box">
-          <div class="card-icon">🌿</div>
-          <h3>Zero Nicotine</h3>
-          <p>Built strictly for peptide delivery — zero nicotine, zero tobacco, zero fillers.</p>
+        <div class="b-item">
+          <h3>Zero nicotine on purpose</h3>
+          <p>Built strictly for peptide delivery — zero nicotine, zero tobacco, zero junk.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WAITLIST SECTION -->
   <section id="waitlist">
     <div class="wrap">
-      <div class="split">
+      <div class="section-head">
+        <h2>Get early access to drop #1</h2>
+        <p>Put your name down to get first dibs and early bird pricing.</p>
+      </div>
+      <div class="buy-box">
+        <img src="images/hero-open.jpg" alt="BPouCh-157 tin open" style="border-radius:18px" />
         <div>
-          <div class="eyebrow-tag">Pre-Launch Priority</div>
-          <h2 style="font-size: 48px;">Get early access to drop #1</h2>
-          <p style="margin-top: 18px; color: var(--text-muted); font-size: 18px;">Put your name down to get first dibs and early bird pricing.</p>
-        </div>
-
-        <div class="waitlist-card">
-          <h3 style="font-family: var(--font-serif); font-size: 28px; font-weight: 500; color: var(--text-dark); margin-bottom: 24px;">Join the Waitlist</h3>
-
+          <div class="eyebrow">Pre-Launch Access</div>
+          <h2 style="font-size:32px;margin-bottom:16px">Join the Waitlist</h2>
           <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
             <input type="hidden" name="_subject" value="🔥 New BPouCh-157 Waitlist Signup!" />
             <input type="hidden" name="_captcha" value="false" />
@@ -433,8 +346,8 @@
               <label for="waitlist-location">Your Location (City, State) *</label>
               <input type="text" id="waitlist-location" name="location" class="form-input" placeholder="e.g. Austin, TX or Miami, FL" required autocomplete="address-level2" />
             </div>
-            <button type="submit" id="submit-btn" class="btn" style="width:100%; height:54px; font-size:16px; margin-top:10px;">
-              Reserve My Spot →
+            <button type="submit" id="submit-btn" class="btn btn-teal" style="width:100%;height:50px;font-size:16px">
+              Join VIP Waitlist
             </button>
           </form>
 
@@ -444,14 +357,13 @@
           </div>
 
           <div class="security-badge">
-            🔒 <strong>256-bit SSL Encrypted</strong> · Zero spam. Strictly confidential.
+            🔒 <strong>256-bit Encrypted</strong> · We respect your privacy. No spam, ever.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ SECTION -->
   <section id="faq" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
@@ -480,17 +392,16 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="foot-top">
-        <div class="logo">BPC POUCH <span>157</span></div>
-        <div>Oral peptide pouches · Nicotine-free</div>
+        <div class="logo">BPouCh<span>-157</span></div>
+        <div>Oral peptide pouches · nicotine-free</div>
       </div>
       <p class="disclaimer">
-        <strong>Important Disclaimer:</strong> BPC-157 is not approved by the FDA for the diagnosis, treatment, cure, or prevention of any disease. BPouCh-157 is a pre-launch product concept page. Statements on this page have not been evaluated by the Food and Drug Administration. Keep out of reach of children. 21+ only.
+        <strong>Important:</strong> BPC-157 is not approved by the FDA for the diagnosis, treatment, cure, or prevention of any disease. BPouCh-157 is a conceptual / demonstration product page. Statements on this page have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Keep out of reach of children. 21+ only.
       </p>
-      <p style="margin-top:24px">© 2026 BPC Pouch. All rights reserved.</p>
+      <p style="margin-top:18px">© 2026 BPouCh. Demo landing page.</p>
     </div>
   </footer>
 
@@ -518,6 +429,7 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting...';
 
+      // Save submission securely in browser local storage as backup
       try {
         const existing = JSON.parse(localStorage.getItem('bpcpouch_waitlist') || '[]');
         existing.push({ name: safeName, email: safeEmail, location: safeLocation, date: new Date().toISOString() });
@@ -526,6 +438,7 @@
         console.warn('Storage disabled');
       }
 
+      // Send email directly to john@rvahealthpartner.com via secure FormSubmit AJAX API
       try {
         const formData = new FormData(form);
         await fetch('https://formsubmit.co/ajax/john@rvahealthpartner.com', {
@@ -537,6 +450,7 @@
         console.warn('Submission sent locally');
       }
 
+      // Display clean success state
       document.getElementById('user-name').textContent = safeName;
       document.getElementById('user-email').textContent = safeEmail;
       document.getElementById('user-location').textContent = safeLocation;
